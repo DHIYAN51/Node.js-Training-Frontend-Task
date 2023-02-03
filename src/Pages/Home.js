@@ -52,8 +52,8 @@ Axios.delete(`${vercel}/users/${id}`)
           })}
         </tbody>
       </Table>
-      <div>
-      <button className="btn btn-success text-center justify-content-center" onClick={navigated}>Create-User</button>
+      <div className="text-center">
+      <button className="btn btn-success" type="button" onClick={navigated}>Create-User</button>
       </div>
       
     </Container>
