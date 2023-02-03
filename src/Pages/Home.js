@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import Axios from "axios";
-const Home = () => {
+import { useNavigate } from "react-router-dom";
+const Home = ({getId}) => {
+  const navigate = useNavigate();
   const vercel = "https://back-end-task-leli.vercel.app";
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -14,6 +16,14 @@ const Home = () => {
 Axios.delete(`${vercel}/users/${id}`)
 .then(()=> alert("User Deleted Successfully"))
 .catch(e => console.log(e));
+  }
+
+  const updateUser =(id)=>{
+    getId(id);
+    navigate('/updateform')
+  }
+  const navigated =()=>{
+    navigate('/createform')
   }
   return (
     <Container>
@@ -35,13 +45,17 @@ Axios.delete(`${vercel}/users/${id}`)
                 <td>{index+1}</td>
                 <td>{user.username}</td>
                 <td>{user.password}</td>
-                <td><button className="btn btn-warning">Update</button></td>
+                <td><button className="btn btn-warning" onClick={()=> updateUser(user._id)}>Update</button></td>
                 <td><button className="btn btn-danger" onClick={()=> deleteUser(user._id)}>Delete</button></td>
               </tr>
             )
           })}
         </tbody>
       </Table>
+      <div>
+      <button className="btn btn-success text-center justify-content-center" onClick={navigated}>Create-User</button>
+      </div>
+      
     </Container>
   );
 };
