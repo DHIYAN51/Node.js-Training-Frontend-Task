@@ -7,6 +7,7 @@ const Home = ({getId}) => {
   const navigate = useNavigate();
   const vercel = "https://back-end-task-leli.vercel.app";
   const [users, setUsers] = useState([]);
+  const[search, setSearch] = useState("")
   useEffect(() => {
     Axios.get(`${vercel}/users`).then((res) => setUsers(res.data));
   }, []);
@@ -28,6 +29,14 @@ Axios.delete(`${vercel}/users/${id}`)
   return (
     <Container>
       <h4 className="display-3 text-center">Users-List</h4>
+      
+      <div className="row">
+        <div className="col-md-5 mx-auto p-4">
+            <div className="input-group">
+                <input className="form-control border-end-0 border rounded-pill" placeholder="Search here" value={search} onChange={e => setSearch(e.target.value)}/> 
+            </div>
+        </div>
+    </div>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -39,8 +48,9 @@ Axios.delete(`${vercel}/users/${id}`)
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => {
+          {search.length > 0 && users.map((user, index) => {
             return (
+              // user.search.toLowerCase().includes(search.toLowerCase()) ? user.search : " " &&
               <tr key={index}>
                 <td>{index+1}</td>
                 <td>{user.username}</td>
