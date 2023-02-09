@@ -42,7 +42,10 @@ Axios.delete(`${vercel}/users/${id}`)
           <tr>
             <th>S.No</th>
             <th>User Name</th>
+            <th>Email-ID</th>
             <th>Password</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
             <th>Update</th>
             <th>Delete</th>
           </tr>
@@ -54,7 +57,11 @@ Axios.delete(`${vercel}/users/${id}`)
               <tr key={index}>
                 <td>{index+1}</td>
                 <td>{user.username}</td>
+                <td>{user.emailid}</td>
                 <td>{user.password}</td>
+                <td>{user.firstname}</td>
+                <td>{user.lastname}</td>
+                
                 <td><button className="btn btn-warning" onClick={()=> updateUser(user._id)}>Update</button></td>
                 <td><button className="btn btn-danger" onClick={()=> deleteUser(user._id)}>Delete</button></td>
               </tr>
