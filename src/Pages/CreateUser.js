@@ -9,7 +9,7 @@ import * as yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import {ToastErrMsg, ToastSuccessMsg}from"../utils/ToastMsg";
-const CreateUser = () => {
+
   const validationSchema = yup.object({
     username: yup
       .string()
@@ -46,6 +46,7 @@ const CreateUser = () => {
       
   });
 
+  const CreateUser = () => {
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -64,12 +65,16 @@ const CreateUser = () => {
     formik.resetForm();
    }
   });
-  console.log("Error-->: ", formik.errors);
+//   if(formik.errors){
+//     ToastErrMsg("Credentials are needs")
+//     console.log("Error-->: ", formik.errors);
+// }
+
+console.log("Error-->: ", formik.errors);
   const navigate = useNavigate();
   const vercel = "https://back-end-task-leli.vercel.app";
   // const test = "http://localhost:8001";
   
- 
   
   const Submithandler = async (values) => {
      
@@ -78,11 +83,12 @@ const CreateUser = () => {
     .catch((err)=>{
       if (err && err.response){
         ToastErrMsg(err.response.data.message)
-         console.log("Error: ", err);
+         console.log("Error---> ",err.response.data.message );
       }
     });
     if(response && response.data){
         ToastSuccessMsg(response.data.message)
+        console.log("Successful----> ", response.data.message)
     }
   
   }
