@@ -11,7 +11,7 @@ const UpdateUser = ({id}) => {
   const [lastname, setLastname] = useState("");
   const [password, setPassword] = useState("");
   const updateHandler =(id)=>{
-  Axios.put(`${vercel}/users/update/${id}`,{firstname:firstname, lastname:lastname, password:password}).then(()=>alert("user updated")).catch(e=>console.log(e))
+  Axios.put(`${vercel}/users/update/${id}`,{firstname:firstname, lastname:lastname,  password:password}).then(()=>alert("user updated")).catch(e=>console.log(e))
   setFirstname("");
   setLastname("");
   setPassword("");
@@ -28,7 +28,6 @@ const UpdateUser = ({id}) => {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Last name</Form.Label>
         <Form.Control type="text" placeholder="Enter lastname"  onChange={(e)=>setLastname(e.target.value)} value={lastname}/>
-        
       </Form.Group>
 
 
