@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import UpdateUser from "./Pages/UpdateUser";
 import CreateUser from "./Pages/CreateUser";
 import Navigation from "./Components/Navbar";
+import View from './Pages/View';
 function App() {
   const [id,setId] = useState("");
   const getId =(id)=>{
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home getId={getId}/>}/>
         <Route path="/updateform" element={<UpdateUser id={id}/>}/>
         <Route path="/createform" element={<CreateUser/>}/>
+        <Route path="/viewlist" element={<View/>}/>
       </Routes>
     </BrowserRouter>
   );

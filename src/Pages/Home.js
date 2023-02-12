@@ -8,6 +8,7 @@ const Home = ({ getId }) => {
   const vercel = "https://back-end-task-leli.vercel.app";
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
+ 
   useEffect(() => {
     Axios.get(`${vercel}/users`).then((res) => setUsers(res.data));
   }, []);
@@ -26,12 +27,16 @@ const Home = ({ getId }) => {
   const navigated = () => {
     navigate("/createform");
   };
+  const navitoview =()=>{
+    navigate("/viewlist")
+  }
   return (
     <Container>
       <h4 className="display-3 text-center">Users-List</h4>
-
-      <div className="row">
-        <div className="col-md-5 mx-auto p-4">
+       
+      <div className="row p-5 mx-auto my-auto">
+      <div className="col-sm-8">
+        <div className="width-55">
           <div className="input-group">
             <input
               className="form-control border-end-0 border rounded-pill"
@@ -42,6 +47,28 @@ const Home = ({ getId }) => {
           </div>
         </div>
       </div>
+      <div className="col-sm-2">
+          <button
+            className="btn btn-success p-2 mr-2"
+            type="button"
+            onClick={navigated}
+          >
+            Create-User
+          </button>
+        </div>
+        <div className="col-sm-2">
+          <button
+            className="btn btn-warning"
+            type="button"
+            onClick={navitoview}  
+          >
+            View
+          </button>
+        </div>
+      
+    
+      </div>
+     
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -54,6 +81,7 @@ const Home = ({ getId }) => {
             <th>Delete</th>
           </tr>
         </thead>
+        
         <tbody>
           {search.length > 0 &&
             users.map((user, index) => {
@@ -85,12 +113,9 @@ const Home = ({ getId }) => {
               );
             })}
         </tbody>
+
+ 
       </Table>
-      <div className="text-center">
-        <button className="btn btn-success" type="button" onClick={navigated}>
-          Create-User
-        </button>
-      </div>
     </Container>
   );
 };
