@@ -33,9 +33,9 @@ const Home = ({ getId }) => {
   const navitoview = () => {
     navigate("/viewlist");
   };
-  console.log(
-    users.filter((user) => user.firstname.toLowerCase().includes("KAN"))
-  );
+  // console.log(
+  //   users.filter((user) => user.firstname.toLowerCase().includes("KAN"))
+  // );
   return (
     <div>
       <Navigation />
@@ -89,13 +89,16 @@ const Home = ({ getId }) => {
           </MDBTableHead>
 
           <tbody>
-            {search.length === 0 ? (
+            {/* {search.length === 0 ? (
               <tr>
                 <td colspan={8} className="text-center mb-o">
-                  No Data Found
+                  
                 </td>
               </tr>
-            ) : (
+            ) : ( */}
+
+            
+              {
               users
                 .filter(
                   (user) =>
@@ -131,8 +134,10 @@ const Home = ({ getId }) => {
                       </td>
                     </tr>
                   );
-                })
-            )}
+                })}
+
+
+                {/* )} */}
           </tbody>
         </MDBTable>
       </Container>
