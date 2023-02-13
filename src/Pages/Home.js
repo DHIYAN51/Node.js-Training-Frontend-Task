@@ -4,12 +4,13 @@ import Table from "react-bootstrap/Table";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
+import { MDBBtn  } from "mdb-react-ui-kit";
 const Home = ({ getId }) => {
   const navigate = useNavigate();
   const vercel = "https://back-end-task-leli.vercel.app";
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
- 
+
   useEffect(() => {
     Axios.get(`${vercel}/users`).then((res) => setUsers(res.data));
   }, []);
@@ -28,48 +29,47 @@ const Home = ({ getId }) => {
   const navigated = () => {
     navigate("/createform");
   };
-  const navitoview =()=>{
-    navigate("/viewlist")
-  }
+  const navitoview = () => {
+    navigate("/viewlist");
+  };
   return (
     <Container>
-      <h4 className="display-3 text-center">Users-List</h4>
-       
+     
+
       <div className="row p-5 mx-auto my-auto">
-      <div className="col-sm-8">
-        <div className="width-55">
-          <div className="input-group">
-            <input
-              className="form-control border-end-0 border rounded-pill"
-              placeholder="Search here"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="col-sm-2">
-          <button
-            className="btn btn-success p-2 mr-2"
+    
+        <form
+          style={{
+            margin: "auto",
+            padding: "15px",
+            maxWidth: "400px",
+            alignContent: "center",
+          }}
+          className="d-flex input-group w-auto"
+        >
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search "
+            value={search}
+            
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+          <MDBBtn
+            className="mx-2"
+            color="success"
             type="button"
             onClick={navigated}
           >
-            Create-User
-          </button>
-        </div>
-        <div className="col-sm-2">
-          <button
-            className="btn btn-warning"
-            type="button"
-            onClick={navitoview}  
-          >
+            Create user
+          </MDBBtn>
+          <MDBBtn className="mx-2" color="warning" onClick={navitoview}>
             View
-          </button>
-        </div>
-      
-    
+          </MDBBtn>
+        </form>
       </div>
-     
+      <h2 className="text-center">Users-List</h2>
       <Table striped bordered hover>
         <thead className="thead">
           <tr>
@@ -82,9 +82,18 @@ const Home = ({ getId }) => {
             <th>Delete</th>
           </tr>
         </thead>
-        
+
         <tbody>
-          {search.length > 0 &&
+        {search.length === 0 ? (
+               
+                <tr>
+                  <td colspan={8} className="text-center mb-o">
+                    No Data Found
+                  </td>
+                </tr>
+             
+            ) :
+          search.length > 0 &&
             users.map((user, index) => {
               return (
                 // user.search.toLowerCase().includes(search.toLowerCase()) ? user.search : " " &&
@@ -114,8 +123,6 @@ const Home = ({ getId }) => {
               );
             })}
         </tbody>
-
- 
       </Table>
     </Container>
   );
