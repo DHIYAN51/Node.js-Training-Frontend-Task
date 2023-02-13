@@ -8,7 +8,7 @@ const Navigation = () => {
       <Container>
         <Navbar.Brand href="/">Node.js Training</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/home">Home</Nav.Link>
           <Nav.Link href="/createform">CreateUser</Nav.Link>
           <Nav.Link href="/updateform">UpdateUser</Nav.Link>
           <Nav.Link href="/viewlist">Viewlist</Nav.Link>

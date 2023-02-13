@@ -8,8 +8,9 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { ToastErrMsg, ToastSuccessMsg } from "../utils/ToastMsg";
-
+import { ToastErrMsg, ToastSuccessMsg } from "../../utils/ToastMsg";
+import Navigation from "./Navbar";
+ 
 const validationSchema = yup.object({
   username: yup
     .string()
@@ -59,7 +60,7 @@ const CreateUser = () => {
     onSubmit: (userinput) => {
       console.log("Submithandler-----", userinput);
       Submithandler(userinput);
-      navigate("/");
+      navigate("/home");
       formik.resetForm();
     },
   });
@@ -91,6 +92,7 @@ const CreateUser = () => {
 
   return (
     <div>
+      <Navigation/>
       <ToastContainer />
       <div>
         <Container>

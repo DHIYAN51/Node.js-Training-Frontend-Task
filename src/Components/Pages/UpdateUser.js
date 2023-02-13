@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import Navigation from "./Navbar";
 const UpdateUser = ({id}) => {
   const navigate = useNavigate();
   const vercel = "https://back-end-task-leli.vercel.app";
@@ -18,7 +19,9 @@ const UpdateUser = ({id}) => {
   navigate('/')
   }
   return (
-    <Container>
+    <div>
+       <Navigation/>
+       <Container>
     <Form onSubmit={(e)=>{ e.preventDefault(); updateHandler(id);}}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>First name</Form.Label>
@@ -43,6 +46,8 @@ const UpdateUser = ({id}) => {
       </Button>
     </Form>
   </Container>
+    </div>
+ 
   )
 }
 
