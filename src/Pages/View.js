@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import Table from "react-bootstrap/Table";
+ 
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../App.css"
+ 
+import { MDBBtn, MDBTable,MDBTableHead  } from "mdb-react-ui-kit";
 const View = () => {
     const navigate = useNavigate();
     const vercel = "https://back-end-task-leli.vercel.app";
@@ -19,14 +20,14 @@ const View = () => {
            <Container>
             <div className="row d-3 text-center mt-2 mb-3">
                 <div>  <h4 className="">--User's Data--</h4></div>
-                <div> <button className="btn btn-warning mt-2 mb-3" onClick={navigated}>Back to Home</button></div>
+                <div> <MDBBtn className="btn btn-warning mt-2 mb-3" onClick={navigated}>Back to Home</MDBBtn></div>
            
     
        
        
      
-      <Table striped bordered hover>
-        <thead className="thead">
+                <MDBTable>
+            <MDBTableHead dark>
           <tr>
             <th>S.No</th>
             <th>Firstname</th>
@@ -35,7 +36,7 @@ const View = () => {
             <th>Email-ID</th>
          
           </tr>
-        </thead>
+        </MDBTableHead >
         
         <tbody>
      {
@@ -55,7 +56,7 @@ const View = () => {
         </tbody>
 
  
-      </Table>
+      </MDBTable>
       </div>
       
     </Container> 
