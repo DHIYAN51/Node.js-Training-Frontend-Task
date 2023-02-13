@@ -115,7 +115,7 @@ const Home = ({ getId }) => {
                       <td>{user.emailid}</td>
                       <td>
                         <button
-                          className="btn btn-warning"
+                          className="btn btn-info"
                           onClick={() => updateUser(user._id)}
                         >
                           Update
