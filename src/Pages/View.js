@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import "../App.css"
 const View = () => {
     const navigate = useNavigate();
     const vercel = "https://back-end-task-leli.vercel.app";
@@ -26,7 +26,7 @@ const View = () => {
        
      
       <Table striped bordered hover>
-        <thead>
+        <thead className="thead">
           <tr>
             <th>S.No</th>
             <th>Firstname</th>
