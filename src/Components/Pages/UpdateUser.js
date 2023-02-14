@@ -16,13 +16,13 @@ const UpdateUser = ({id}) => {
   setFirstname("");
   setLastname("");
   setPassword("");
-  navigate('/')
+  navigate('/home')
   }
   return (
     <div>
        <Navigation/>
        <Container>
-    <Form onSubmit={(e)=>{ e.preventDefault(); updateHandler(id);}}>
+    <Form onSubmit={(e)=>{e.preventDefault();updateHandler(id);}}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>First name</Form.Label>
         <Form.Control type="text" placeholder="Enter firstname"  onChange={(e)=>setFirstname(e.target.value)} value={firstname}/>

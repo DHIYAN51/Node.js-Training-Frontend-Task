@@ -89,16 +89,10 @@ const Home = ({ getId }) => {
           </MDBTableHead>
 
           <tbody>
-            {/* {search.length === 0 ? (
-              <tr>
-                <td colspan={8} className="text-center mb-o">
-                  
-                </td>
-              </tr>
-            ) : ( */}
+          
 
             
-              {
+            {  
               users
                 .filter(
                   (user) =>
@@ -134,10 +128,10 @@ const Home = ({ getId }) => {
                       </td>
                     </tr>
                   );
-                })}
+                })
 
 
-                {/* )} */}
+               } 
           </tbody>
         </MDBTable>
       </Container>
