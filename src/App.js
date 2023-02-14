@@ -7,6 +7,8 @@ import View from './Components/Pages/View';
 import Login from './Components/Login/Login';
 import Forgotpassword from './Components/Login/Forgot';
 import Register from './Components/Login/Register';
+ 
+ 
 function App() {
   const [id,setId] = useState("");
   const getId =(id)=>{

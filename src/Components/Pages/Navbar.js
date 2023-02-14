@@ -2,9 +2,9 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
-import { deepOrange, deepPurple } from '@mui/material/colors';
+import Avatar from "@mui/material/Avatar";
+import Stack from "@mui/material/Stack";
+import { deepOrange, deepPurple } from "@mui/material/colors";
 const Navigation = () => {
   return (
     <Navbar bg="primary" variant="dark">
@@ -30,10 +30,8 @@ const Navigation = () => {
             </Nav.Link>
           </Nav>
           <Stack direction="row" spacing={2}>
-      
-      <Avatar sx={{ bgcolor: deepOrange[500] }}>D</Avatar>
-     
-    </Stack>
+            <Avatar sx={{ bgcolor: deepOrange[500] }}>D</Avatar>
+          </Stack>
         </Navbar.Collapse>
       </Container>
     </Navbar>
