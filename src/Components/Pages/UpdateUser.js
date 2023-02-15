@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { ToastErrMsg,ToastSuccessMsg } from "../../utils/ToastMsg";
 const UpdateUser = ({id}) => {
   const navigate = useNavigate();
   const vercel = "https://back-end-task-leli.vercel.app";
@@ -12,8 +13,19 @@ const UpdateUser = ({id}) => {
   const [lastname, setLastname] = useState("");
   const [password, setPassword] = useState("");
   const [emailid,setEmailid]= useState("");
-  const updateHandler =(id)=>{
-  Axios.put(`${vercel}/users/update/${id}`,{firstname:firstname, lastname:lastname,emailid:emailid, password:password}).then(()=>alert("user updated")).catch(e=>console.log(e))
+  const updateHandler =async (id)=>{
+ const response = await Axios.put(`${vercel}/users/update/${id}`,{firstname:firstname, lastname:lastname,emailid:emailid, password:password}).catch(
+  (err) => {
+    if (err && err.response) {
+      ToastErrMsg(err.response.data);
+      console.log("Error---> ", err.response.data);
+    }
+  }
+);
+if (response && response.data) {
+  ToastSuccessMsg(response.data);
+  console.log("Successful----> ", response.data);
+}
   setFirstname("");
   setLastname("");
   setPassword("");
