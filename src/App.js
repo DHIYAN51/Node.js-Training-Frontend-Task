@@ -6,7 +6,8 @@ import CreateUser from "./Components/Pages/CreateUser";
 import View from './Components/Pages/View';
 import Login from './Components/Login/Login';
 import Forgotpassword from './Components/Login/Forgot';
-import Register from './Components/Login/Register';
+ 
+import Signup from './Components/Login/Signup';
  
  
 function App() {
@@ -20,7 +21,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Login/>}/>
         <Route path="/forgot_password" element={<Forgotpassword/>}/>
-        <Route path="/newuser" element={<Register/>}/>
+        <Route path="/newuser" element={<Signup/>}/>
         <Route path="/home" element={<Home getId={getId}/>}/>
         <Route path="/updateform" element={<UpdateUser id={id}/>}/>
         <Route path="/createform" element={<CreateUser/>}/>

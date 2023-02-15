@@ -3,6 +3,8 @@ import AuthService from "../../Services/authService";
 import { useNavigate } from "react-router-dom";
 import "../../Styles/Login/Register.css";
 import Button from "react-bootstrap/Button";
+import { ToastErrMsg } from "../../utils/ToastMsg";
+import { ToastContainer } from "react-toastify";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,8 +22,12 @@ const Register = () => {
           navigate("/home");
           window.location.reload();
         },
-        (error) => {
-          console.log(error);
+        (err) => {
+          if (err && err.response) {
+            ToastErrMsg(err.response.data);
+            console.log("Error---> ", err.response.data);
+          }
+           
         }
       );
     } catch (err) {
@@ -30,8 +36,9 @@ const Register = () => {
   };
 
   return (
-   
-    <div className="center">
+   <div>
+     <ToastContainer />
+     <div className="center">
       <h3 className="text-center p-4">Register</h3>
       <form method="post" onSubmit={handleSignup}>
         <div className="txt_field">
@@ -78,7 +85,13 @@ const Register = () => {
         </div>
       </form>
     </div>
+   </div>
+  
   );
 };
 
 export default Register;
+
+
+
+ 

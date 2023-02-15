@@ -2,8 +2,8 @@ import Axios from "axios";
 
 const API_URL = "http://localhost:8001/login";
 
-const signup = (email,password,name,confirmpassword)=>{
-    return Axios.post (API_URL,{
+const signup = (email,password,confirmpassword,name)=>{
+    return Axios.post (API_URL+"/signup",{
         email,password,name,confirmpassword
     }).then((response)=>{
         if(response.data.token){
