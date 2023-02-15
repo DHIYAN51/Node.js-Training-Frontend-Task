@@ -26,7 +26,7 @@ const Login = () => {
         },
         (err) => {
           if (err && err.response) {
-            ToastErrMsg(err.response.data);
+            ToastErrMsg(err.response.data)
             console.log("Error---> ", err.response.data);
           }
            
