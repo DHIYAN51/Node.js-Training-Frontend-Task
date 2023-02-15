@@ -46,22 +46,22 @@ const Login = () => {
           <div className="txt_field">
             <input
               type="text"
-              placeholder="dhiyanesh@gmail.com"
+              // placeholder="dhiyanesh@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <span></span>
-            <label>Email-ID</label>
+            <label>Email-ID*</label>
           </div>
           <div className="txt_field">
             <input
               type="password"
-              placeholder="Pass@123"
+              // placeholder="Pass@123"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             <span></span>
-            <label>Password</label>
+            <label>Password*</label>
           </div>
           {/* <div class="pass">Forgot Password?</div> */}
           <div className="text-center">
