@@ -6,7 +6,6 @@ import CreateUser from "./Components/Pages/CreateUser";
 import View from './Components/Pages/View';
 import Login from './Components/Login/Login';
 import Forgotpassword from './Components/Login/Forgot';
- 
 import Signup from './Components/Login/Signup';
  
  

@@ -1,4 +1,4 @@
-body{
+/* body{
     margin: 0;
     padding: 0;
     color: black;
@@ -6,7 +6,7 @@ body{
     background: linear-gradient(120deg,#fcfeff,#f4eded);
     height: 100vh;
     overflow: hidden;
-}
+} */
 
 .center{
     position:absolute;

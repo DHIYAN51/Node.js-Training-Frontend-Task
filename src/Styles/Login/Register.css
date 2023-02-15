@@ -4,9 +4,9 @@ body {
   color: black;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background: linear-gradient(120deg, #47b0f2, #e4f1f4);
-  height: 100vh;
-  overflow: hidden;
+  background: linear-gradient(120deg, #a9dae7, #e4f1f4);
+  height: 200vh;
+ 
 }
 
 .center {
